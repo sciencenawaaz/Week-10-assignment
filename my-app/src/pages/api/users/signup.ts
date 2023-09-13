@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { User } from "../../../models/Models";
+import { User } from "../../../models/userModel";
 
 
 type user = {

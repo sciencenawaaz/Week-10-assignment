@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from '@/config/connectMongoDB';
-import { Course } from "../../../models/Models"
+import Course from "../../../models/courseModel"
 
 type Data = {
   result?:{
