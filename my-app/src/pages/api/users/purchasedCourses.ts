@@ -32,12 +32,13 @@ export default async function handler(
     await dbConnect();
 
     switch (method) {
-        case "POST":
+        case "GET":
             try {
-
-                const user:user = await User.findOne({username : req.body.username, password:req.body.password}).populate({path:'purchasedCourses', model:Course});
+                            console.log(`Hi from backend ${req.body.username}`);
+                            
+                const user:user = await User.findOne({username : req.body.username}).populate({path:'purchasedCourses', model:Course});
                 if (user) {      
-                    return res.json({PurchasedCourses : user.purchasedCourses || []})
+                    return res.status(200).json({PurchasedCourses : user.purchasedCourses || []})
                 }
                 return res.status(403).json({msg : "User not found"});
                 
